@@ -1,9 +1,33 @@
-# thrive_demo_site
+## 🚀 Deploy Thrive Africa Static Site on EC2 (Amazon Linux + NGINX)
 
-On EC2
+### Prerequisites:
+- Amazon Linux 2 EC2 instance
+- Port 80 open in the security group
+- Public GitHub repo with your website (e.g., index.html)
 
-# Update the package manager and installed packages
+### Deployment Commands:
+
+```bash
+# Update system and install Git
 sudo yum update -y
+sudo yum install -y git
 
-# Install Git
-sudo yum install git -y
+# Enable and install NGINX
+sudo amazon-linux-extras enable nginx1
+sudo yum install -y nginx
+
+# Start and enable NGINX to run on boot
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+# Clean default web directory
+sudo rm -rf /usr/share/nginx/html/*
+
+# Clone your GitHub repo into NGINX web root
+sudo git clone https://github.com/your-username/thrive-africa.git /usr/share/nginx/html
+
+# (Optional) Set proper permissions
+sudo chown -R nginx:nginx /usr/share/nginx/html
+
+# Open in browser
+# http://<your-ec2-public-ip>
