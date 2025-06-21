@@ -27,7 +27,7 @@ sudo rm -rf /usr/share/nginx/html/*
 git clone https://github.com/your-username/thrive-africa.git
 
 # Step 2: Move the website files into the NGINX web root
-sudo mv thrive-africa/* /usr/share/nginx/html/
+sudo mv thrive_demo_site/* /usr/share/nginx/html/
 
 # (Optional) Set proper permissions
 sudo chown -R nginx:nginx /usr/share/nginx/html
