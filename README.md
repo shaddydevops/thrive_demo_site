@@ -24,7 +24,10 @@ sudo systemctl enable nginx
 sudo rm -rf /usr/share/nginx/html/*
 
 # Clone your GitHub repo into NGINX web root
-sudo git clone https://github.com/your-username/thrive-africa.git /usr/share/nginx/html
+git clone https://github.com/your-username/thrive-africa.git
+
+# Step 2: Move the website files into the NGINX web root
+sudo mv thrive-africa/* /usr/share/nginx/html/
 
 # (Optional) Set proper permissions
 sudo chown -R nginx:nginx /usr/share/nginx/html
